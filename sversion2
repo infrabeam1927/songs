@@ -1,0 +1,16 @@
+filename = "songs.txt"
+
+while True:
+    # Ask the user for a song and their name
+    song = input("Enter a song name (or type 'exit' to stop): ")
+    user = input("Enter your name: ")
+    
+    # Check if the user wants to exit
+    if song.lower() == "exit":
+        break
+    
+    # Store the song and the user in the file
+    with open(filename, "a") as file:
+        file.write(f"{user}: {song}\n")
+
+print("Songs and users stored in the file successfully!")
