@@ -1,0 +1,33 @@
+songs = {}
+
+def add_song(user, song):
+    if user in songs:
+        songs[user].append(song)
+    else:
+        songs[user] = [song]
+
+def get_songs(user):
+    if user in songs:
+        return songs[user]
+    else:
+        return None
+
+while True:
+    print("1. Add a song")
+    print("2. Get songs for a user")
+    print("3. Quit")
+    choice = int(input("Enter your choice: "))
+    if choice == 1:
+        user = input("Enter your name: ")
+        song = input("Enter the name of the song: ")
+        add_song(user, song)
+        print("Song added successfully!")
+    elif choice == 2:
+        user = input("Enter your name: ")
+        user_songs = get_songs(user)
+        if user_songs is None:
+            print("No songs found for the user")
+        else:
+            print("Songs for user '{}': {}".format(user, user_songs))
+    else:
+        break
